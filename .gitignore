@@ -1,0 +1,3 @@
+# Project exclude paths
+/edu/target/
+/node_modules/
