@@ -10,6 +10,6 @@ public interface SubjectService {
     ResultModel<List<SubjectVO>> findAll();
 
     ResultModel add(SubjectDTO subjectDTO);
-    ResultModel deleteById(int id);
-    ResultModel updateById(int id, String name);
+    ResultModel deleteById(String id);
+    ResultModel updateById(String id, String name);
 }

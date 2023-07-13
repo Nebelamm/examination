@@ -4,6 +4,7 @@ import com.neu.edu.dto.SubjectDTO;
 import com.neu.edu.mapper.SubjectMapper;
 import com.neu.edu.service.SubjectService;
 import com.neu.edu.utils.ResultModel;
+import com.neu.edu.vo.StudentVO;
 import com.neu.edu.vo.SubjectVO;
 import com.neu.edu.domain.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class SubjectServiceImpl implements SubjectService {
         ResultModel resultModel = new ResultModel();
         //DTO--domain
         Subject subject = new Subject();
-        subject.setName(subjectDTO.getName());
+        subject.setName(subjectDTO.getSubject_name());
         subjectMapper.add(subject);
 
         resultModel.setCode(200);
@@ -41,8 +42,7 @@ public class SubjectServiceImpl implements SubjectService {
     }
 
     @Override
-    public ResultModel deleteById(int id) {
-        System.out.println(id);
+    public ResultModel deleteById(String id) {
         ResultModel resultModel = new ResultModel();
 
         subjectMapper.deleteById(id);
@@ -53,12 +53,12 @@ public class SubjectServiceImpl implements SubjectService {
     }
 
     @Override
-    public ResultModel updateById(int id, String name) {
+    public ResultModel updateById(String id, String name) {
         ResultModel resultModel = new ResultModel();
         //DTO--domain
         Subject subject = new Subject();
         subject.setName(name);
-        subject.setId(id);
+        subject.setSubjcet_id(id);
         subjectMapper.updateById(subject);
 
         resultModel.setCode(200);

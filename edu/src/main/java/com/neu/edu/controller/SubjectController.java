@@ -26,12 +26,12 @@ public class SubjectController {
     }
 
     @DeleteMapping("/{id}")
-    public ResultModel deleteById(@PathVariable("id") int id){
+    public ResultModel deleteById(@PathVariable("id") String id){
         return subjectService.deleteById(id);
     }
 
     @PutMapping("/{id}")
-    public ResultModel updateById(@PathVariable("id") int id,String name){
+    public ResultModel updateById(@PathVariable("id") String id,String name){
         return subjectService.updateById(id,name);
     }
 

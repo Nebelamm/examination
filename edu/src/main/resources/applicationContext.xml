@@ -8,9 +8,9 @@
 <!--    spring管理连接池-->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="username" value="root"></property>
-        <property name="password" value="123456"></property>
+        <property name="password" value="gNeTlc2dw6%g"></property>
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
-        <property name="url" value="jdbc:mysql://localhost:3306/javadb"></property>
+        <property name="url" value="jdbc:mysql://47.113.148.155:3306/examination"></property>
         <property name="maxActive" value="10"></property>
         <property name="initialSize" value="2"></property>
         <property name="maxWait" value="2000"></property>
