@@ -33,7 +33,7 @@ public class SubjectServiceImpl implements SubjectService {
         ResultModel resultModel = new ResultModel();
         //DTO--domain
         Subject subject = new Subject();
-        subject.setName(subjectDTO.getSubject_name());
+        subject.setName(subjectDTO.getName());
         subjectMapper.add(subject);
 
         resultModel.setCode(200);
@@ -42,7 +42,7 @@ public class SubjectServiceImpl implements SubjectService {
     }
 
     @Override
-    public ResultModel deleteById(String id) {
+    public ResultModel deleteById(int id) {
         ResultModel resultModel = new ResultModel();
 
         subjectMapper.deleteById(id);
@@ -53,7 +53,7 @@ public class SubjectServiceImpl implements SubjectService {
     }
 
     @Override
-    public ResultModel updateById(String id, String name) {
+    public ResultModel updateById(int id, String name) {
         ResultModel resultModel = new ResultModel();
         //DTO--domain
         Subject subject = new Subject();

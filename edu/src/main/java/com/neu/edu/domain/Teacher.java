@@ -1,18 +1,18 @@
-package com.neu.edu.vo;
+package com.neu.edu.domain;
 
-public class TeacherVO {
+public class Teacher {
 
-    private Integer teacher_id;
+    private int teacher_id;
     private String name;
     private String password;
     private String phone;
     private String mail;
 
-    public Integer getTeacher_id() {
+    public int getTeacher_id() {
         return teacher_id;
     }
 
-    public void setTeacher_id(Integer teacher_id) {
+    public void setTeacher_id(int teacher_id) {
         this.teacher_id = teacher_id;
     }
 

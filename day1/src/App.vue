@@ -1,19 +1,16 @@
 <template>
-  <router-view></router-view>
+  <router-view>
+
+  </router-view>
 </template>
 
 <script>
 export default {
-  name: "App",
+  name:"App"
 }
 </script>
-
-<style scoped>
-
-</style>
-
 <style>
-#app{
+#app {
   height: 100%;
 }
 </style>

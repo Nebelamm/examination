@@ -2,15 +2,15 @@ package com.neu.edu.domain;
 
 public class Subject {
 
-    private String subjcet_id;
+    private Integer subjcet_id;
     private String name;
-    private String teacher_id;
+    private Integer teacher_id;
 
-    public String getSubjcet_id() {
+    public Integer getSubjcet_id() {
         return subjcet_id;
     }
 
-    public void setSubjcet_id(String subjcet_id) {
+    public void setSubjcet_id(Integer subjcet_id) {
         this.subjcet_id = subjcet_id;
     }
 
@@ -22,11 +22,11 @@ public class Subject {
         this.name = name;
     }
 
-    public String getTeacher_id() {
+    public Integer getTeacher_id() {
         return teacher_id;
     }
 
-    public void setTeacher_id(String teacher_id) {
+    public void setTeacher_id(Integer teacher_id) {
         this.teacher_id = teacher_id;
     }
 }

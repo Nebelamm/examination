@@ -6,10 +6,11 @@ import java.util.List;
 
 public interface SubjectMapper {
     List<SubjectVO> findAll();
+    SubjectVO findById();
 
     int add(Subject subject);
 
-    int deleteById(String id);
+    int deleteById(int id);
 
     int updateById(Subject subject);
 

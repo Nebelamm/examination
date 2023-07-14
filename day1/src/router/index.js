@@ -1,25 +1,61 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import SubjectList from "@/views/subject/List"
-import Login from "@/views/Login";
-import Layout from "@/views/layout/Layout";
+import {createRouter, createWebHistory} from 'vue-router'
+import ClassList from "@/views/class/classList.vue";
+import exampage from "@/views/class/exampage.vue";
+import Login from "@/views/login.vue";
+import student from "@/views/menber/student.vue";
+import exammanage from "@/views/exam/exammanage.vue";
+import main from "@/views/main/main.vue";
+import elective from "@/views/exam/elective.vue";
+import reg from "@/views/reg.vue";
+
 const routes = [
   {
-    path: '/admin/login',
-    name: 'loginView',
+    path: '/main',
+    name: 'main',
+    component: main,
+    children: [
+      {
+        path: "/",
+        redirect:"/login"
+      },
+      {
+        path: '/class/classlist',
+        name: 'classList',
+        component: ClassList
+      },
+      {
+        path: '/exam/exampage',
+        name: 'exampage',
+        component: exampage
+      },
+      {
+        path: '/menber/student',
+        name: 'student',
+        component: student
+      },
+      {
+        path: '/exam/exammanage',
+        name: 'exammanage',
+        component: exammanage
+      },
+      {
+        path: '/exam/elective',
+        name: 'elective',
+        component: elective
+      },
+    ]
+  },
+  {
+    path: '/login/admin',
+    name: 'adminlogin',
     component: Login
   },
   {
-    path: '/layout',
-    name: 'layoutView',
-    component: Layout,
-    children: [{
-        path: '/subject/list',
-        name: 'subjectView',
-        component: SubjectList
-    }]
-  },
+    path: '/reg',
+    name: 'reg',
+    component: reg
+  }
 ]
-
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes

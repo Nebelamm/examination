@@ -9,6 +9,7 @@ import com.neu.edu.vo.StudentVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,9 +35,15 @@ public class StudentServiceImpl implements StudentService{
         ResultModel resultModel = new ResultModel();
         StudentVO studentVO = studentMapper.findById(id);
 
-        resultModel.setCode(200);
-        resultModel.setMsg("查询学生成功");
-        resultModel.setData(studentVO);
+        if(studentVO==null){
+            resultModel.setCode(401);
+            resultModel.setMsg("该学生不存在");
+        }else {
+            resultModel.setCode(200);
+            resultModel.setMsg("查询学生成功");
+            resultModel.setData(studentVO);
+        }
+
         return resultModel;
     }
 
@@ -56,21 +63,41 @@ public class StudentServiceImpl implements StudentService{
         student.setPassword(studentDTO.getPassword());
         student.setPhone(studentDTO.getPhone());
         student.setMail(studentDTO.getMail());
-        studentMapper.add(student);
 
-        resultModel.setCode(200);
-        resultModel.setMsg("添加学生成功");
+        if(studentMapper.add(student)==0){
+            resultModel.setCode(401);
+            resultModel.setMsg("添加学生失败");
+        }else {
+            resultModel.setCode(200);
+            resultModel.setMsg("添加学生成功");
+        }
         return resultModel;
     }
 
     @Override
-    public ResultModel deleteById(int id) {
-        ResultModel resultModel = new ResultModel();
+    public ResultModel deleteById(int id){
 
-        studentMapper.deleteById(id);
-        resultModel.setCode(200);
-        resultModel.setMsg("删除学生成功");
-        return resultModel;
+        ResultModel resultModel = new ResultModel();
+        int res = 0;
+        try {
+
+            res = studentMapper.deleteById(id);
+            if(res==0){
+                resultModel.setCode(401);
+                resultModel.setMsg("删除学生失败");
+            }
+            else {
+                resultModel.setCode(200);
+                resultModel.setMsg("删除学生成功");
+            }
+        } catch (Exception e) {
+            resultModel.setCode(401);
+            resultModel.setMsg("删除学生失败");
+            throw new RuntimeException(e);
+        }finally {
+            return resultModel;
+        }
+
     }
 
     @Override
@@ -84,12 +111,26 @@ public class StudentServiceImpl implements StudentService{
         student.setPhone(studentDTO.getPhone());
         student.setMail(studentDTO.getMail());
 
-        studentMapper.updateById(student);
-        System.out.println(student.getStu_name());
 
-        resultModel.setCode(200);
-        resultModel.setMsg("更新学生成功");
-        return resultModel;
+        int res = 0;
+        try {
+
+            res = studentMapper.updateById(student);
+            if(res==0){
+                resultModel.setCode(401);
+                resultModel.setMsg("更新学生失败");
+            }
+            else {
+                resultModel.setCode(200);
+                resultModel.setMsg("更新学生成功");
+            }
+        } catch (Exception e) {
+            resultModel.setCode(401);
+            resultModel.setMsg("更新学生失败");
+            throw new RuntimeException(e);
+        }finally {
+            return resultModel;
+        }
     }
 
     @Override
