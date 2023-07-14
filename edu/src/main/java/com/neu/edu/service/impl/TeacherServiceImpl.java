@@ -132,11 +132,33 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public ResultModel login(String name, String password){
         ResultModel resultModel = new ResultModel();
+
         Map<String, String> map = new HashMap<String,String>();
         map.put("name", name);
         map.put("password", password);
 
         TeacherVO teacherVO = teacherMapper.login(map);
+
+        if(teacherVO==null){
+            resultModel.setCode(401);
+            resultModel.setMsg("账号或密码错误");
+        }else {
+            resultModel.setCode(200);
+            resultModel.setMsg("登录成功");
+        }
+        //resultModel.setData();
+        return resultModel;
+    }
+
+    public ResultModel loginById(int teacher_id, String password) {
+        Map<String, Teacher> map = new HashMap<String, Teacher>();
+        Teacher teacher = new Teacher();
+        teacher.setTeacher_id(teacher_id);
+        teacher.setPassword(password);
+        map.put("loginId", teacher);
+
+        ResultModel resultModel = new ResultModel();
+        TeacherVO teacherVO = teacherMapper.idLogin(map);
 
         if(teacherVO==null){
             resultModel.setCode(401);

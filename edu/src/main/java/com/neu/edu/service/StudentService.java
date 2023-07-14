@@ -16,4 +16,5 @@ public interface StudentService {
     ResultModel updateById(StudentDTO studentDTO);
     ResultModel<String> login(String name, String password);
 
+    ResultModel<String> loginById(int student_id, String password);
 }

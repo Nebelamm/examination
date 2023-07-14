@@ -56,4 +56,8 @@
         select student_id,stu_name from t_student where stu_name = #{stu_name} and password = #{password}
     </select>
 
+    <select id="idLogin" resultType="studentVO" parameterType="map">
+        select student_id,stu_name from t_student where student_id = #{loginId.student_id} and password = #{loginId.password}
+    </select>
+
 </mapper>

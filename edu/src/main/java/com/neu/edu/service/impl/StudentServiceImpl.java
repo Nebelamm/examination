@@ -1,11 +1,13 @@
 package com.neu.edu.service.impl;
 
 import com.neu.edu.domain.Student;
+import com.neu.edu.domain.Teacher;
 import com.neu.edu.dto.StudentDTO;
 import com.neu.edu.mapper.StudentMapper;
 import com.neu.edu.service.StudentService;
 import com.neu.edu.utils.ResultModel;
 import com.neu.edu.vo.StudentVO;
+import com.neu.edu.vo.TeacherVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -142,6 +144,28 @@ public class StudentServiceImpl implements StudentService{
         map.put("password", password);
 
         StudentVO studentVO = studentMapper.login(map);
+
+        if(studentVO==null){
+            resultModel.setCode(401);
+            resultModel.setMsg("账号或密码错误");
+        }else {
+            resultModel.setCode(200);
+            resultModel.setMsg("登录成功");
+        }
+        //resultModel.setData();
+        return resultModel;
+    }
+
+
+    public ResultModel loginById(int teacher_id, String password) {
+        Map<String, Student> map = new HashMap<String, Student>();
+        Student student = new Student();
+        student.setStudent_id(teacher_id);
+        student.setPassword(password);
+        map.put("loginId", student);
+
+        ResultModel resultModel = new ResultModel();
+        StudentVO studentVO = studentMapper.idLogin(map);
 
         if(studentVO==null){
             resultModel.setCode(401);

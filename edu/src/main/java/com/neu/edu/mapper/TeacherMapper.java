@@ -19,4 +19,6 @@ public interface TeacherMapper {
     int updateById(Teacher teacher);
 
     TeacherVO login(Map<String  ,String> map);
+
+    TeacherVO idLogin(Map<String  ,Teacher> map);
 }

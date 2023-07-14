@@ -1,6 +1,7 @@
 package com.neu.edu.mapper;
 
 import com.neu.edu.domain.Student;
+import com.neu.edu.domain.Teacher;
 import com.neu.edu.vo.StudentVO;
 import com.neu.edu.vo.TeacherVO;
 
@@ -20,5 +21,6 @@ public interface StudentMapper {
 
     StudentVO login(Map<String  ,String> map);
 
+    StudentVO idLogin(Map<String  , Student> map);
 
 }

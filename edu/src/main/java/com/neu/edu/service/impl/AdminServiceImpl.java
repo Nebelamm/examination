@@ -22,6 +22,7 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public ResultModel login(String t_admin, String password){
         ResultModel resultModel = new ResultModel();
+
         Map<String, String> map = new HashMap<String,String>();
         map.put("t_admin", t_admin);
         map.put("password", password);

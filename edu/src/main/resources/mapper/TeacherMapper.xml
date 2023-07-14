@@ -58,4 +58,8 @@
         select teacher_id,name from t_teacher where name = #{name} and password = #{password}
     </select>
 
+    <select id="idLogin" resultType="teacherVO" parameterType="map">
+        select teacher_id,name from t_teacher where teacher_id = #{loginId.teacher_id} and password = #{loginId.password}
+    </select>
+
 </mapper>

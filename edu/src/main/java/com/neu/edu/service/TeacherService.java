@@ -1,5 +1,6 @@
 package com.neu.edu.service;
 
+import com.neu.edu.domain.Teacher;
 import com.neu.edu.dto.StudentDTO;
 import com.neu.edu.dto.TeacherDTO;
 import com.neu.edu.utils.ResultModel;
@@ -18,4 +19,6 @@ public interface TeacherService {
     ResultModel updateById(TeacherDTO teacherDTO);
 
     ResultModel<String> login(String name, String password);
+
+    ResultModel<String> loginById(int teacher_id, String password);
 }
