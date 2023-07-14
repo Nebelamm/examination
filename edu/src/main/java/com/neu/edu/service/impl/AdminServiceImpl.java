@@ -20,11 +20,10 @@ public class AdminServiceImpl implements AdminService {
     AdminMapper adminMapper;
 
     @Override
-    public ResultModel login(String name, String password){
+    public ResultModel login(String t_admin, String password){
         ResultModel resultModel = new ResultModel();
-
         Map<String, String> map = new HashMap<String,String>();
-        map.put("name", name);
+        map.put("t_admin", t_admin);
         map.put("password", password);
 
         AdminVO adminVO = adminMapper.login(map);

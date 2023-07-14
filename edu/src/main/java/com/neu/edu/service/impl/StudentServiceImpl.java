@@ -93,11 +93,11 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public ResultModel login(String name, String password){
+    public ResultModel login(String stu_name, String password){
         ResultModel resultModel = new ResultModel();
 
         Map<String, String> map = new HashMap<String,String>();
-        map.put("name", name);
+        map.put("stu_name", stu_name);
         map.put("password", password);
 
         StudentVO studentVO = studentMapper.login(map);

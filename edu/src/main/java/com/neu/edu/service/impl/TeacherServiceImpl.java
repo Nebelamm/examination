@@ -19,7 +19,6 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public ResultModel login(String name, String password){
         ResultModel resultModel = new ResultModel();
-
         Map<String, String> map = new HashMap<String,String>();
         map.put("name", name);
         map.put("password", password);
