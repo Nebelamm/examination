@@ -2,8 +2,10 @@ package com.neu.edu.mapper;
 
 import com.neu.edu.domain.Student;
 import com.neu.edu.vo.StudentVO;
+import com.neu.edu.vo.TeacherVO;
 
 import java.util.List;
+import java.util.Map;
 
 public interface StudentMapper {
 
@@ -15,6 +17,8 @@ public interface StudentMapper {
     int deleteById(int id);
 
     int updateById(Student student);
+
+    StudentVO login(Map<String  ,String> map);
 
 
 }

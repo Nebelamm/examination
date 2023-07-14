@@ -9,7 +9,9 @@ import com.neu.edu.vo.StudentVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class StudentServiceImpl implements StudentService{
@@ -42,10 +44,15 @@ public class StudentServiceImpl implements StudentService{
     @Override
     public ResultModel add(StudentDTO studentDTO) {
         ResultModel resultModel = new ResultModel();
+
         //DTO--domain
         Student student = new Student();
         student.setStudent_id(studentDTO.getStudent_id());
         student.setStu_name(studentDTO.getStu_name());
+        System.out.println(studentDTO.getStu_name());
+        System.out.println("1");
+        System.out.println(student.getStu_name());
+        System.out.println("2");
         student.setPassword(studentDTO.getPassword());
         student.setPhone(studentDTO.getPhone());
         student.setMail(studentDTO.getMail());
@@ -82,6 +89,27 @@ public class StudentServiceImpl implements StudentService{
 
         resultModel.setCode(200);
         resultModel.setMsg("更新学生成功");
+        return resultModel;
+    }
+
+    @Override
+    public ResultModel login(String name, String password){
+        ResultModel resultModel = new ResultModel();
+
+        Map<String, String> map = new HashMap<String,String>();
+        map.put("name", name);
+        map.put("password", password);
+
+        StudentVO studentVO = studentMapper.login(map);
+
+        if(studentVO==null){
+            resultModel.setCode(401);
+            resultModel.setMsg("账号或密码错误");
+        }else {
+            resultModel.setCode(200);
+            resultModel.setMsg("登录成功");
+        }
+        //resultModel.setData();
         return resultModel;
     }
 

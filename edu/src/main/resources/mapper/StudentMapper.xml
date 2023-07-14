@@ -52,4 +52,8 @@
         </where>
     </update>
 
+    <select id="login" resultType="studentVO" parameterType="map">
+        select student_id,name from t_student where name = #{name} and password = #{password}
+    </select>
+
 </mapper>
