@@ -151,16 +151,17 @@ public class StudentServiceImpl implements StudentService{
         }else {
             resultModel.setCode(200);
             resultModel.setMsg("登录成功");
+            resultModel.setData(stu_name);
         }
-        //resultModel.setData();
+
         return resultModel;
     }
 
 
-    public ResultModel loginById(int teacher_id, String password) {
+    public ResultModel loginById(int student_id, String password) {
         Map<String, Student> map = new HashMap<String, Student>();
         Student student = new Student();
-        student.setStudent_id(teacher_id);
+        student.setStudent_id(student_id);
         student.setPassword(password);
         map.put("loginId", student);
 
@@ -173,6 +174,7 @@ public class StudentServiceImpl implements StudentService{
         }else {
             resultModel.setCode(200);
             resultModel.setMsg("登录成功");
+            resultModel.setData(student_id);
         }
         //resultModel.setData();
         return resultModel;

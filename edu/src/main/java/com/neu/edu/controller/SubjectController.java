@@ -15,6 +15,15 @@ public class SubjectController {
     @Autowired
     private SubjectService subjectService;
 
+    @GetMapping("/test")
+    public ResultModel test(){
+        System.out.println("gettest");
+        ResultModel resultModel = new ResultModel();
+        resultModel.setCode(200);
+        resultModel.setMsg("请求成功");
+        return resultModel;
+    }
+
     @GetMapping("")
     public ResultModel<List<SubjectVO>> findAll(){
         return subjectService.findAll();

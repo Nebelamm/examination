@@ -145,6 +145,7 @@ public class TeacherServiceImpl implements TeacherService {
         }else {
             resultModel.setCode(200);
             resultModel.setMsg("登录成功");
+            resultModel.setData(name);
         }
         //resultModel.setData();
         return resultModel;
@@ -166,6 +167,7 @@ public class TeacherServiceImpl implements TeacherService {
         }else {
             resultModel.setCode(200);
             resultModel.setMsg("登录成功");
+            resultModel.setData(teacher_id);
         }
         //resultModel.setData();
         return resultModel;

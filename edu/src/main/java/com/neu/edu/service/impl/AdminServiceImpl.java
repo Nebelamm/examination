@@ -36,8 +36,8 @@ public class AdminServiceImpl implements AdminService {
         }else {
             resultModel.setCode(200);
             resultModel.setMsg("登录成功");
+            resultModel.setData(t_admin);
         }
-        //resultModel.setData();
         return resultModel;
     }
 }
