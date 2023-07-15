@@ -80,7 +80,7 @@ public class TeacherServiceImpl implements TeacherService {
             res = teacherMapper.deleteById(id);
             if(res==0){
                 resultModel.setCode(401);
-                resultModel.setMsg("删除老师失败");
+                resultModel.setMsg("删除老师失败，老师不存在");
             }
             else {
                 resultModel.setCode(200);
@@ -88,7 +88,7 @@ public class TeacherServiceImpl implements TeacherService {
             }
         } catch (Exception e) {
             resultModel.setCode(401);
-            resultModel.setMsg("删除老师失败");
+            resultModel.setMsg("老师不可失败");
             throw new RuntimeException(e);
         }finally {
             return resultModel;
@@ -112,7 +112,7 @@ public class TeacherServiceImpl implements TeacherService {
             res = teacherMapper.updateById(teacher);
             if(res==0){
                 resultModel.setCode(401);
-                resultModel.setMsg("更新老师失败");
+                resultModel.setMsg("更新失败，老师不存在");
             }
             else {
                 resultModel.setCode(200);
@@ -120,7 +120,7 @@ public class TeacherServiceImpl implements TeacherService {
             }
         } catch (Exception e) {
             resultModel.setCode(401);
-            resultModel.setMsg("更新老师失败");
+            resultModel.setMsg("老师不可更改");
             throw new RuntimeException(e);
         }finally {
             return resultModel;

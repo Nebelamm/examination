@@ -86,7 +86,7 @@ public class StudentServiceImpl implements StudentService{
             res = studentMapper.deleteById(id);
             if(res==0){
                 resultModel.setCode(401);
-                resultModel.setMsg("删除学生失败");
+                resultModel.setMsg("删除失败，学生不存在");
             }
             else {
                 resultModel.setCode(200);
@@ -94,7 +94,7 @@ public class StudentServiceImpl implements StudentService{
             }
         } catch (Exception e) {
             resultModel.setCode(401);
-            resultModel.setMsg("删除学生失败");
+            resultModel.setMsg("学生暂不可删除");
             throw new RuntimeException(e);
         }finally {
             return resultModel;
@@ -105,6 +105,7 @@ public class StudentServiceImpl implements StudentService{
     @Override
     public ResultModel updateById(StudentDTO studentDTO) {
         ResultModel resultModel = new ResultModel();
+        System.out.println("enter");
         //DTO--domain
         Student student = new Student();
         student.setStudent_id(studentDTO.getStudent_id());
@@ -114,13 +115,14 @@ public class StudentServiceImpl implements StudentService{
         student.setMail(studentDTO.getMail());
 
 
+
         int res = 0;
         try {
 
             res = studentMapper.updateById(student);
             if(res==0){
                 resultModel.setCode(401);
-                resultModel.setMsg("更新学生失败");
+                resultModel.setMsg("更新失败，学生不存在");
             }
             else {
                 resultModel.setCode(200);
@@ -128,11 +130,13 @@ public class StudentServiceImpl implements StudentService{
             }
         } catch (Exception e) {
             resultModel.setCode(401);
-            resultModel.setMsg("更新学生失败");
+            resultModel.setMsg("更新失败，学生暂不可更新");
             throw new RuntimeException(e);
         }finally {
+            System.out.println(res);
             return resultModel;
         }
+
     }
 
     @Override
