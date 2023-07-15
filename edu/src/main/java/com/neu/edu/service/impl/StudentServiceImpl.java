@@ -178,7 +178,7 @@ public class StudentServiceImpl implements StudentService{
         }else {
             resultModel.setCode(200);
             resultModel.setMsg("登录成功");
-            resultModel.setData(student_id);
+            resultModel.setData(studentVO);
         }
         //resultModel.setData();
         return resultModel;

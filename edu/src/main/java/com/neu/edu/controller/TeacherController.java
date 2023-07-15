@@ -38,7 +38,7 @@ public class TeacherController {
     }
 
     @PutMapping("/{id}")
-    public ResultModel updateById(TeacherDTO teacherDTO){
+    public ResultModel updateById(@PathVariable("id") int id,TeacherDTO teacherDTO){
         return teacherService.updateById(teacherDTO);
     }
 

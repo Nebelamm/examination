@@ -31,7 +31,7 @@ public class StuLoginController {
      * @return
      */
     @PostMapping ("/student/idLogin")
-    public ResultModel<String> login_teacherById(int student_id, String password){
+    public ResultModel<String> login_studentById(int student_id, String password){
         System.out.println("student loginById");
         return studentService.loginById(student_id,password);
     }

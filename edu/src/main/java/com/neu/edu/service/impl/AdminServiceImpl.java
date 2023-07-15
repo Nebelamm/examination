@@ -1,12 +1,9 @@
 package com.neu.edu.service.impl;
 
 import com.neu.edu.mapper.AdminMapper;
-import com.neu.edu.mapper.TeacherMapper;
 import com.neu.edu.service.AdminService;
-import com.neu.edu.service.TeacherService;
 import com.neu.edu.utils.ResultModel;
 import com.neu.edu.vo.AdminVO;
-import com.neu.edu.vo.TeacherVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
