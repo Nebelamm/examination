@@ -59,9 +59,9 @@ public class StudentServiceImpl implements StudentService{
         student.setStudent_id(studentDTO.getStudent_id());
         student.setStu_name(studentDTO.getStu_name());
         System.out.println(studentDTO.getStu_name());
-        System.out.println("1");
+        //System.out.println("1");
         System.out.println(student.getStu_name());
-        System.out.println("2");
+        //System.out.println("2");
         student.setPassword(studentDTO.getPassword());
         student.setPhone(studentDTO.getPhone());
         student.setMail(studentDTO.getMail());
