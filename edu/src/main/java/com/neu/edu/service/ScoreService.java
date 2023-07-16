@@ -12,4 +12,6 @@ public interface ScoreService {
     ResultModel<List<ScoreVO>> findAll();
 
     ResultModel updateById(ScoreDTO scoreDTO);
+
+    ResultModel<List<ScoreVO>> find(int id);
 }

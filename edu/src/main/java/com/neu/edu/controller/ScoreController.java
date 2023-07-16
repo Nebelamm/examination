@@ -22,6 +22,23 @@ public class ScoreController {
         return scoreService.findAll();
     }
 
+    /**
+     * 通过老师id查找该老师的所有学生的成绩
+     * @param id
+     * @return
+     */
+    @GetMapping("/{id}")
+    public ResultModel<List<ScoreVO>> find(@PathVariable("id") int id){
+        return scoreService.find(id);
+    }
+
+//    @GetMapping("/{id}")
+//    public ResultModel<List<ScoreVO>> findById(){
+//        return scoreService.findById();
+//    }
+
+
+
     @PutMapping("/{id}")
     public ResultModel updateById(@PathVariable("id") int id, ScoreDTO scoreDTO){
         return scoreService.updateById(scoreDTO);
